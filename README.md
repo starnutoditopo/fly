@@ -64,7 +64,7 @@ To take advantage of all features, you should register to the following services
 
 Once the application is running, the API keys and URLs should be configured in the corresponding "Settings" view, accessible through the "Settings" button:
 
-![alt text](image-4.png)
+![alt text](Documentation/Images/image-4.png)
 
 Typical configurations are:
 
