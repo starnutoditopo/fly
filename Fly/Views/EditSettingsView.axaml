@@ -1,0 +1,378 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="clr-namespace:Fly.ViewModels"
+             xmlns:converters="clr-namespace:Fly.ValueConverters"
+             x:Class="Fly.Views.EditSettingsView"
+			 x:DataType="vm:EditSettingsViewModel"
+             >
+	<TabControl>
+		<TabItem Header="{DynamicResource Text.EditSettings.GeneralSectionTitle}">
+			<Grid
+				Margin="0,16,0,0"
+				RowDefinitions="32,32,32"
+				ColumnDefinitions="150,*">
+
+				<Label
+					Grid.Row="0"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.HomeCoordinate}"
+				/>
+				<TextBox
+					Grid.Row="0"
+					Grid.Column="1"
+					Height="26"
+					VerticalAlignment="Center"
+					CornerRadius="2"
+					Watermark="{DynamicResource Text.EditSettings.HomeCoordinateWatermark  }"
+					Text="{Binding Home, Converter={converters:CoordinateModelToStringConverter}, Mode=TwoWay}"
+				/>
+
+				<CheckBox
+					Grid.Row="1"
+					Grid.Column="1"
+					Content="{DynamicResource Text.EditSettings.GeneralAutomaticallyOpenLastDocument}"
+					IsChecked="{Binding AutomaticallyOpenLastDocument, Mode=TwoWay}"
+				/>
+				<CheckBox
+					Grid.Row="2"
+					Grid.Column="1"
+					Content="{DynamicResource Text.EditSettings.GeneralAutomaticallyLoadCoordinateInformation}"
+					IsChecked="{Binding AutomaticallyLoadCoordinateInformation, Mode=TwoWay}"
+				/>
+
+			</Grid>
+		</TabItem>
+		<TabItem Header="{DynamicResource Text.EditSettings.OpenAipAPISectionTitle}">
+			<Grid
+				Margin="0,16,0,0"
+				RowDefinitions="32,32,32,32,32"
+				ColumnDefinitions="150,*">
+				<Label
+					Grid.Row="0"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.OpenAipAPIKey}"
+				/>
+				<TextBox
+					Grid.Row="0"
+					Grid.Column="1"
+					Height="26"
+					VerticalAlignment="Center"
+					CornerRadius="2"
+					Watermark="{DynamicResource Text.EditSettings.OpenAipAPIKeyWatermark}"
+					Text="{Binding OpenAIP_ApiKey, Mode=TwoWay}"
+				/>
+
+				<Label
+					Grid.Row="1"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.OpenAipAPI_Api_BaseUrl}"
+				/>
+				<TextBox
+					Grid.Row="1"
+					Grid.Column="1"
+					Height="26"
+					VerticalAlignment="Center"
+					CornerRadius="2"
+					Watermark="{DynamicResource Text.EditSettings.OpenAipAPI_Api_BaseUrlWatermark}"
+					Text="{Binding OpenAIP_Api_BaseUrl, Mode=TwoWay}"
+				/>
+
+				<Label
+					Grid.Row="2"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.OpenAipAPIUrlFormatter}"
+				/>
+				<TextBox
+					Grid.Row="2"
+					Grid.Column="1"
+					Height="26"
+					VerticalAlignment="Center"
+					CornerRadius="2"
+					Watermark="{DynamicResource Text.EditSettings.OpenAipAPIUrlFormatterWatermark}"
+					Text="{Binding OpenAIP_Urlformatter, Mode=TwoWay}"
+				/>
+
+				<Label
+					Grid.Row="3"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.OpenAipAPIServersList}"
+				/>
+				<TextBox
+					Grid.Row="3"
+					Grid.Column="1"
+					Height="26"
+					VerticalAlignment="Center"
+					CornerRadius="2"
+					Watermark="{DynamicResource Text.EditSettings.OpenAipAPIServersListWatermark  }"
+					Text="{Binding OpenAIP_ServersList, Converter={converters:CsvStringArrayConverter}, Mode=TwoWay}"
+				/>
+
+				<Label
+					Grid.Row="4"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.OpenAipAPIUserAgent}"
+				/>
+				<TextBox
+					Grid.Row="4"
+					Grid.Column="1"
+					Height="26"
+					VerticalAlignment="Center"
+					CornerRadius="2"
+					Watermark="{DynamicResource Text.EditSettings.OpenAipAPIUserAgentWatermark  }"
+					Text="{Binding OpenAIP_UserAgent, Mode=TwoWay}"
+				/>
+			</Grid>
+		</TabItem>
+		<TabItem Header="{DynamicResource Text.EditSettings.FlightSectionTitle}">
+			<Grid
+				Margin="0,16,0,0"
+				RowDefinitions="32,32"
+				ColumnDefinitions="150,*">
+				<Label
+					Grid.Row="0"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.FlightResidualAutonomy}"
+				/>
+				<TextBox
+					Grid.Row="0"
+					Grid.Column="1"
+					Height="26"
+					VerticalAlignment="Center"
+					CornerRadius="2"
+					Text="{Binding Flight_ResidualAutonomy, Mode=TwoWay}"
+				/>
+
+				<Label
+					Grid.Row="1"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.FlightTimeToReachAlternateField}"
+				/>
+				<TextBox
+					Grid.Row="1"
+					Grid.Column="1"
+					Height="26"
+					VerticalAlignment="Center"
+					CornerRadius="2"
+					Text="{Binding Flight_TimeToReachAlternateField, Mode=TwoWay}"
+				/>
+			</Grid>
+		</TabItem>
+		<TabItem Header="{DynamicResource Text.EditSettings.UnitsOfMeasureSectionTitle}">
+			<Grid
+				Margin="0,16,0,0"
+				RowDefinitions="32,32"
+				ColumnDefinitions="150,*">
+
+				<Label
+					Grid.Row="0"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.UnitOfMeasureForSpeed}"
+				/>
+				<ComboBox
+					Grid.Row="0"
+					Grid.Column="1"
+					HorizontalAlignment="Stretch"
+					Height="26"
+					IsTextSearchEnabled="False"
+					ItemsSource="{Binding AvailableUnitsOfMeasureForSpeed}"
+					SelectedItem="{Binding Plane_FavouriteUnitOfMeasureForSpeed}"
+					DisplayMemberBinding="{Binding DisplayName}"
+				/>
+
+				<Label
+					Grid.Row="1"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.UnitOfMeasureForFuelConsumption}"
+				/>
+				<ComboBox
+					Grid.Row="1"
+					Grid.Column="1"
+					HorizontalAlignment="Stretch"
+					Height="26"
+					IsTextSearchEnabled="False"
+					ItemsSource="{Binding AvailableUnitsOfMeasureForFuelConsumption}"
+					SelectedItem="{Binding Plane_FavouriteUnitOfMeasureForFuelConsumption}"
+					DisplayMemberBinding="{Binding DisplayName}"
+				/>
+
+			</Grid>
+		</TabItem>
+		<TabItem Header="{DynamicResource Text.EditSettings.OpenRouteServiceSectionTitle}">
+			<Grid
+				Margin="0,16,0,0"
+				RowDefinitions="32,32"
+				ColumnDefinitions="150,*">
+
+				<Label
+					Grid.Row="0"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.OpenRouteServiceKey}"
+				/>
+				<TextBox
+					Grid.Row="0"
+					Grid.Column="1"
+					Height="26"
+					VerticalAlignment="Center"
+					CornerRadius="2"
+					Watermark="{DynamicResource Text.EditSettings.OpenRouteServiceKeyWatermark}"
+					Text="{Binding OpenRouteService_ApiKey, Mode=TwoWay}"
+				/>
+
+				<Label
+					Grid.Row="1"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.OpenRouteService_Api_BaseUrl}"
+				/>
+				<TextBox
+					Grid.Row="1"
+					Grid.Column="1"
+					Height="26"
+					VerticalAlignment="Center"
+					CornerRadius="2"
+					Watermark="{DynamicResource Text.EditSettings.OpenRouteService_Api_BaseUrlWatermark}"
+					Text="{Binding OpenRouteService_Api_BaseUrl, Mode=TwoWay}"
+				/>
+			</Grid>
+
+		</TabItem>
+		<TabItem Header="{DynamicResource Text.EditSettings.MapTilerSatelliteAPISectionTitle}">
+			<Grid
+				Margin="0,16,0,0"
+				RowDefinitions="32,32,32"
+				ColumnDefinitions="150,*">
+				<Label
+					Grid.Row="0"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.MapTilerSatelliteAPIKey}"
+				/>
+				<TextBox
+					Grid.Row="0"
+					Grid.Column="1"
+					Height="26"
+					VerticalAlignment="Center"
+					CornerRadius="2"
+					Watermark="{DynamicResource Text.EditSettings.MapTilerSatelliteAPIKeyWatermark}"
+					Text="{Binding MapTilerSatellite_ApiKey, Mode=TwoWay}"
+				/>
+
+				<Label
+					Grid.Row="1"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.MapTilerSatelliteAPIUrlFormatter}"
+				/>
+				<TextBox
+					Grid.Row="1"
+					Grid.Column="1"
+					Height="26"
+					VerticalAlignment="Center"
+					CornerRadius="2"
+					Watermark="{DynamicResource Text.EditSettings.MapTilerSatelliteAPIUrlFormatterWatermark}"
+					Text="{Binding MapTilerSatellite_Urlformatter, Mode=TwoWay}"
+				/>
+
+				<Label
+					Grid.Row="2"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.MapTilerSatelliteAPIUserAgent}"
+				/>
+				<TextBox
+					Grid.Row="2"
+					Grid.Column="1"
+					Height="26"
+					VerticalAlignment="Center"
+					CornerRadius="2"
+					Watermark="{DynamicResource Text.EditSettings.MapTilerSatelliteAPIUserAgentWatermark  }"
+					Text="{Binding MapTilerSatellite_UserAgent, Mode=TwoWay}"
+				/>
+			</Grid>
+		</TabItem>
+		<TabItem Header="{DynamicResource Text.EditSettings.OpenStreetMapAPISectionTitle}">
+			<Grid
+				Margin="0,16,0,0"
+				RowDefinitions="32,32"
+				ColumnDefinitions="150,*">
+				<Label
+					Grid.Row="0"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.OpenStreetMapAPIUrlFormatter}"
+				/>
+				<TextBox
+					Grid.Row="0"
+					Grid.Column="1"
+					Height="26"
+					VerticalAlignment="Center"
+					CornerRadius="2"
+					Watermark="{DynamicResource Text.EditSettings.OpenStreetMapAPIUrlFormatterWatermark}"
+					Text="{Binding OpenStreetMap_Urlformatter, Mode=TwoWay}"
+				/>
+
+				<Label
+					Grid.Row="1"
+					Grid.Column="0"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					Margin="0,0,8,0"
+					Content="{DynamicResource Text.EditSettings.OpenStreetMapAPIUserAgent}"
+				/>
+				<TextBox
+					Grid.Row="1"
+					Grid.Column="1"
+					Height="26"
+					VerticalAlignment="Center"
+					CornerRadius="2"
+					Watermark="{DynamicResource Text.EditSettings.OpenStreetMapAPIUserAgentWatermark  }"
+					Text="{Binding OpenStreetMap_UserAgent, Mode=TwoWay}"
+				/>
+			</Grid>
+		</TabItem>
+	</TabControl>
+</UserControl>

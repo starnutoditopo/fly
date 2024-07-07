@@ -1,0 +1,39 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="clr-namespace:Fly.ViewModels"
+             xmlns:v="clr-namespace:Fly.Views"
+             xmlns:skp="clr-namespace:Avalonia.Controls.Skia;assembly=Avalonia.Controls.Skia"
+             x:Class="Fly.Views.DocumentView"
+             x:DataType="vm:DocumentViewModel"
+             >
+	<Grid ColumnDefinitions="*,3,150">
+		<v:MapView Grid.Column="0" DataContext="{Binding}" />
+		<GridSplitter Grid.Column="1" />
+		<DockPanel Grid.Column="2">
+			<Expander
+				VerticalAlignment="Top"
+				DockPanel.Dock="Top"
+				Header="{DynamicResource Text.Layers.Title}"
+				HorizontalAlignment="Stretch">
+				<v:LayersView DataContext="{Binding Path=Layers}" />
+			</Expander>
+			<Expander
+				VerticalAlignment="Top"
+				DockPanel.Dock="Top"
+				Header="{DynamicResource Text.Markers.Title}"
+				HorizontalAlignment="Stretch" >
+				<v:MarkersView DataContext="{Binding Path=Markers}" />
+			</Expander>
+			<Expander
+				VerticalAlignment="Top" 
+				DockPanel.Dock="Top"
+				Header="{DynamicResource Text.Routes.Title}"
+				HorizontalAlignment="Stretch">
+				<v:RoutesView DataContext="{Binding Path=Routes}" />
+			</Expander>
+		</DockPanel>
+	</Grid>
+</UserControl>

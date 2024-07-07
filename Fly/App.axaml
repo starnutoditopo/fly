@@ -1,0 +1,29 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Fly.App"
+             xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+             xmlns:views="clr-namespace:Fly.Views"
+
+
+             RequestedThemeVariant="Default">
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="/Assets/Icons.axaml"/>
+                <ResourceInclude Source="/Assets/Themes.axaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <ResourceInclude x:Key="en_US" Source="/Assets/Locales/en_US.axaml"/>
+        </ResourceDictionary>
+    </Application.Resources>
+    <Application.DataTemplates>
+		<views:ViewLocator />
+    </Application.DataTemplates>
+    <Application.Styles>
+        <FluentTheme />
+        <dialogHostAvalonia:DialogHostStyles />
+        <StyleInclude Source="/assets/RadioButtonStyles.axaml" />
+    </Application.Styles>
+</Application>

@@ -1,0 +1,273 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+		<ApplicationIcon>Assets\Logo\logo.ico</ApplicationIcon>
+		<VersionPrefix>0.1.0</VersionPrefix>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<AvaloniaResource Include="Assets\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AvaloniaResource Remove="Assets\Disclaimer for Fly - TermsFeed_files\**" />
+		<AvaloniaResource Remove="Assets\Logo\**" />
+		<AvaloniaXaml Remove="Assets\Disclaimer for Fly - TermsFeed_files\**" />
+		<AvaloniaXaml Remove="Assets\Logo\**" />
+		<AvaloniaXaml Remove="Converters\**" />
+		<AvaloniaXaml Remove="Extensions\**" />
+		<AvaloniaXaml Remove="Models\**" />
+		<AvaloniaXaml Remove="Resources\**" />
+		<AvaloniaXaml Remove="Services\**" />
+		<AvaloniaXaml Remove="StyleRenderers\**" />
+		<AvaloniaXaml Remove="Tiling\**" />
+		<AvaloniaXaml Remove="ValueConverters\**" />
+		<Compile Remove="Assets\Disclaimer for Fly - TermsFeed_files\**" />
+		<Compile Remove="Assets\Logo\**" />
+		<Compile Remove="Converters\**" />
+		<Compile Remove="Extensions\**" />
+		<Compile Remove="Models\**" />
+		<Compile Remove="Resources\**" />
+		<Compile Remove="Services\**" />
+		<Compile Remove="StyleRenderers\**" />
+		<Compile Remove="Tiling\**" />
+		<Compile Remove="ValueConverters\**" />
+		<EmbeddedResource Remove="Assets\Disclaimer for Fly - TermsFeed_files\**" />
+		<EmbeddedResource Remove="Assets\Logo\**" />
+		<EmbeddedResource Remove="Converters\**" />
+		<EmbeddedResource Remove="Extensions\**" />
+		<EmbeddedResource Remove="Models\**" />
+		<EmbeddedResource Remove="Resources\**" />
+		<EmbeddedResource Remove="Services\**" />
+		<EmbeddedResource Remove="StyleRenderers\**" />
+		<EmbeddedResource Remove="Tiling\**" />
+		<EmbeddedResource Remove="ValueConverters\**" />
+		<None Remove="Assets\Disclaimer for Fly - TermsFeed_files\**" />
+		<None Remove="Assets\Logo\**" />
+		<None Remove="Converters\**" />
+		<None Remove="Extensions\**" />
+		<None Remove="Models\**" />
+		<None Remove="Resources\**" />
+		<None Remove="Services\**" />
+		<None Remove="StyleRenderers\**" />
+		<None Remove="Tiling\**" />
+		<None Remove="ValueConverters\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AvaloniaResource Remove="Assets\AboutAssets.txt" />
+		<AvaloniaResource Remove="Assets\Disclaimer for Fly - TermsFeed.html" />
+		<AvaloniaResource Remove="Assets\pin.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AvaloniaXaml Remove="Assets\Icons.axaml" />
+		<AvaloniaXaml Remove="Assets\Locales\en_US.axaml" />
+		<AvaloniaXaml Remove="Assets\RadioButtonStyles.axaml" />
+		<AvaloniaXaml Remove="Assets\Themes.axaml" />
+		<AvaloniaXaml Remove="Views\AirspaceInformationView.axaml" />
+		<AvaloniaXaml Remove="Views\EditMarkerView.axaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Remove="Behaviors\AddingNewMarkerBehavior.cs" />
+		<Compile Remove="Behaviors\MapControlBehavior.wpf.cs" />
+		<Compile Remove="Behaviors\RoutedEventTrigger.cs" />
+		<Compile Remove="Behaviors\RoutedEventTrigger.maui.cs" />
+		<Compile Remove="Comparers\CoordinateInformationModelEqualityComparer.cs" />
+		<Compile Remove="ViewModels\AddressViewModel.cs" />
+		<Compile Remove="ViewModels\AirspaceInformationViewModel.cs" />
+		<Compile Remove="ViewModels\EditMarkerViewModel.cs" />
+		<Compile Remove="ViewModels\GeocodingInformationViewModel.cs" />
+		<Compile Remove="ViewModels\ShellViewModel.cs" />
+		<Compile Remove="Views\AboutView.xaml.cs" />
+		<Compile Remove="Views\AirspaceInformationView.axaml.cs" />
+		<Compile Remove="Views\ConversionsView.xaml.cs" />
+		<Compile Remove="Views\CoordinateView.xaml.cs" />
+		<Compile Remove="Views\EditFlightPlanView.xaml.cs" />
+		<Compile Remove="Views\EditMarkerView.axaml.cs" />
+		<Compile Remove="Views\EditMarkerView.xaml.cs" />
+		<Compile Remove="Views\EditPlaneView.xaml.cs" />
+		<Compile Remove="Views\EditRouteView.xaml.cs" />
+		<Compile Remove="Views\FlightPlansView.xaml.cs" />
+		<Compile Remove="Views\LayersView.xaml.cs" />
+		<Compile Remove="Views\MarkersView.xaml.cs" />
+		<Compile Remove="Views\PlanesView.xaml.cs" />
+		<Compile Remove="Views\RoutesView.xaml.cs" />
+		<Compile Remove="Views\EditSettingsView.xaml.cs" />
+		<Compile Remove="Views\ShellView.xaml.cs" />
+		<Compile Remove="Widgets\CenterCoordinatesWidget.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="Assets\AboutAssets.txt" />
+		<None Remove="Assets\Disclaimer for Fly - TermsFeed.html" />
+		<None Remove="Views\AboutView.xaml" />
+		<None Remove="Views\ConversionsView.xaml" />
+		<None Remove="Views\CoordinateView.xaml" />
+		<None Remove="Views\EditFlightPlanView.xaml" />
+		<None Remove="Views\EditMarkerView.xaml" />
+		<None Remove="Views\EditPlaneView.xaml" />
+		<None Remove="Views\EditRouteView.xaml" />
+		<None Remove="Views\FlightPlansView.xaml" />
+		<None Remove="Views\LayersView.xaml" />
+		<None Remove="Views\MarkersView.xaml" />
+		<None Remove="Views\PlanesView.xaml" />
+		<None Remove="Views\RoutesView.xaml" />
+		<None Remove="Views\EditSettingsView.xaml" />
+		<None Remove="Views\ShellView.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="Extensions\CoordinateBaseViewModelExtensions.cs" />
+		<Compile Include="Extensions\GeographyExtensions.cs" />
+		<Compile Include="Models\AirspacesInformationModel.cs" />
+		<Compile Include="Models\CoordinateModel.cs" />
+		<Compile Include="Models\DocumentModel.cs" />
+		<Compile Include="Models\FlightPlanModel.cs" />
+		<Compile Include="Models\FlightRouteLeg.cs" />
+		<Compile Include="Models\FullCoordinateInformationModel.cs" />
+		<Compile Include="Models\GeocodingInformation.cs" />
+		<Compile Include="Models\ITimelineItem.cs" />
+		<Compile Include="Models\MarkerModel.cs" />
+		<Compile Include="Models\Nominatim\GeocodeJson.cs" />
+		<Compile Include="Models\Nominatim\JsonSerializationHelper.cs" />
+		<Compile Include="Models\OpenAip\GetAirspacesResponse.cs" />
+		<Compile Include="Models\OpenElevation\Response.cs" />
+		<Compile Include="Models\OpenRouteServiceElevationService\LineResponse.cs" />
+		<Compile Include="Models\OpenRouteServiceReverseGeocodeService\Response.cs" />
+		<Compile Include="Models\PlaneModel.cs" />
+		<Compile Include="Models\ReverseGeocodeDetailLevel.cs" />
+		<Compile Include="Models\RouteModel.cs" />
+		<Compile Include="Models\UnitsOfMeasure\FuelConsumption.cs" />
+		<Compile Include="Models\UnitsOfMeasure\IQuantity.cs" />
+		<Compile Include="Models\UnitsOfMeasure\IUnitOfMeasure.cs" />
+		<Compile Include="Models\UnitsOfMeasure\Length.cs" />
+		<Compile Include="Models\UnitsOfMeasure\Speed.cs" />
+		<Compile Include="Models\UnitsOfMeasure\UnitsOfMeasure.cs" />
+		<Compile Include="Models\WaypointDetails.cs" />
+		<Compile Include="Services\IAirspaceInformationService.cs" />
+		<Compile Include="Services\IElevationService.cs" />
+		<Compile Include="Services\IReverseGeocodeService.cs" />
+		<Compile Include="Services\ISettingsService.cs" />
+		<Compile Include="Services\IUnitOfMeasureService.cs" />
+		<Compile Include="Services\OpenAipService.cs" />
+		<Compile Include="Services\NominatimService.cs" />
+		<Compile Include="Services\OpenRouteService.cs" />
+		<Compile Include="Services\OpenRouteService.ElevationService.cs" />
+		<Compile Include="Services\OpenElevationService.cs" />
+		<Compile Include="Services\OpenRouteService.ReverseGeocodeService.cs" />
+		<Compile Include="Services\SettingsService.cs" />
+		<Compile Include="Services\StringArraySerializationHelper.cs" />
+		<Compile Include="Services\UnitOfMeasureService.cs" />
+		<Compile Include="StyleRenderers\FlyMarkerStyles.cs" />
+		<Compile Include="StyleRenderers\FlyStyle.cs" />
+		<Compile Include="StyleRenderers\FlyStyleRenderer.cs" />
+		<Compile Include="StyleRenderers\LabelDrawingHelper.cs" />
+		<Compile Include="Tiling\MapTilerSatellite.cs" />
+		<Compile Include="Tiling\OpenAip.cs" />
+		<Compile Include="Tiling\OpenStreetMap.cs" />
+		<Compile Include="ValueConverters\MessageDialogModeToIconConverter.cs" />
+		<Compile Include="ValueConverters\VerticalLimitUnitToStringConverter.cs" />
+		<Compile Include="ValueConverters\MainViewModelToWindowTitleConverter.cs" />
+		<Compile Include="ValueConverters\CoordinateBaseViewModelToStringConverter.cs" />
+		<Compile Include="ValueConverters\CoordinateModelToStringConverter.cs" />
+		<Compile Include="ValueConverters\CsvStringArrayConverter.cs" />
+		<Compile Include="ValueConverters\IsEqualConverter.cs" />
+		<Compile Include="ValueConverters\IsNotFirstItemInCollectionConverter.cs" />
+		<Compile Include="ValueConverters\IsNotLastItemInCollectionConverter.cs" />
+		<Compile Include="ValueConverters\IsOfTypeConverter.cs" />
+		<Compile Include="ValueConverters\OpacityToPercentageConverter.cs" />
+		<Compile Include="ValueConverters\RotationToStringConverter.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AvaloniaResource Include="Assets\Logo\logo.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="13.0.1" />
+		<PackageReference Include="AutoMapper.Collection" Version="10.0.0" />
+		<PackageReference Include="Avalonia" Version="11.0.10" />
+		<PackageReference Include="Avalonia.Svg.Skia" Version="11.0.0.18" />
+		<PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.10" />
+		<PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.10" />
+		<PackageReference Include="Avalonia.ReactiveUI" Version="11.0.10" />
+		<!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+		<PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.10" />
+		<PackageReference Include="Avalonia.Xaml.Behaviors" Version="11.0.10.9" />
+		<PackageReference Include="DialogHost.Avalonia" Version="0.7.9" />
+		<PackageReference Include="Mapsui.Avalonia" Version="5.0.0-beta.1" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+		<PackageReference Include="Sandreas.Avalonia.Preferences" Version="0.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AvaloniaXaml Update="Views\MapView.axaml">
+			<Generator></Generator>
+		</AvaloniaXaml>
+		<AvaloniaXaml Update="Views\MenuView.axaml">
+			<Generator></Generator>
+		</AvaloniaXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Assets\pin.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AvaloniaResource Include="Assets\Logo\logo.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Views\AirspacesInformationItemView.axaml.cs">
+			<DependentUpon>AirspacesInformationItemView.axaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\EditCoordinateView.axaml.cs">
+		  <DependentUpon>EditCoordinateView.axaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\MessageDialogView.axaml.cs">
+		  <DependentUpon>MessageDialogView.axaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\FrequencyView.axaml.cs">
+		  <DependentUpon>FrequencyView.axaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\VerticalLimitView.axaml.cs">
+			<DependentUpon>VerticalLimitView.axaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\WaypointDetailsView.axaml.cs">
+			<DependentUpon>WaypointDetailsView.axaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\DocumentView.axaml.cs">
+			<DependentUpon>DocumentView.axaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\DialogView.axaml.cs">
+			<DependentUpon>DialogView.axaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\MenuView.axaml.cs">
+			<DependentUpon>MenubarView.axaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\MapView.axaml.cs">
+			<DependentUpon>MapView.axaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\MenuView.axaml.cs">
+			<DependentUpon>MenuView.axaml</DependentUpon>
+		</Compile>
+		<Compile Update="Views\EditSettingsView.axaml.cs">
+			<DependentUpon>EditSettingsView.axaml</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+			<_Parameter1>Fly.Tests</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Assets\Logo\logo.ico" />
+	</ItemGroup>
+</Project>

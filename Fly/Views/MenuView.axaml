@@ -1,0 +1,115 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Fly.ViewModels"
+             xmlns:Converters="clr-namespace:Fly.ValueConverters"
+             x:Class="Fly.Views.MenuView"
+             x:DataType="vm:MainViewModel">
+
+	<StackPanel Orientation="Horizontal">
+		<Border
+			BorderBrush="Black"
+			BorderThickness="1"
+			CornerRadius="2"
+			Margin="1" >
+			<StackPanel Orientation="Horizontal">
+				<Button
+					Command="{Binding NewDocument}"
+					ToolTip.Tip="{DynamicResource Text.Toolbar.Tooltips.New}" >
+					<PathIcon Data="{StaticResource new_regular}"/>
+				</Button>
+				<Button
+					Command="{Binding OpenDocument}"
+					ToolTip.Tip="{DynamicResource Text.Toolbar.Tooltips.Open}" >
+					<PathIcon Data="{StaticResource folder_open_regular}"/>
+				</Button>
+				<Button
+					Command="{Binding SaveDocument}"
+					IsEnabled="{Binding CanSaveDocument}"
+					ToolTip.Tip="{DynamicResource Text.Toolbar.Tooltips.Save}" >
+					<PathIcon Data="{StaticResource save_regular}"/>
+				</Button>
+				<Button
+					Command="{Binding SaveDocumentAs}"
+					ToolTip.Tip="{DynamicResource Text.Toolbar.Tooltips.SaveAs}" >
+					<PathIcon Data="{StaticResource save_as_regular}"/>
+				</Button>
+			</StackPanel>
+		</Border>
+
+		<Border
+			BorderBrush="Black"
+			BorderThickness="1"
+			CornerRadius="2"
+			Margin="2,0" >
+			<StackPanel Orientation="Horizontal">
+				<RadioButton
+					Command="{Binding ShowDocument}"
+					IsChecked="{Binding ActiveViewModel, Converter={Converters:IsOfTypeConverter}, ConverterParameter={x:Type vm:DocumentViewModel}, Mode=OneWay}"
+					ToolTip.Tip="{DynamicResource Text.Toolbar.Tooltips.ShowMap}"
+					>
+					<PathIcon Data="{StaticResource map_regular}"/>
+				</RadioButton>
+				<RadioButton
+					Command="{Binding ShowPlanes}"
+					IsChecked="{Binding ActiveViewModel, Converter={Converters:IsOfTypeConverter}, ConverterParameter={x:Type vm:PlanesViewModel}, Mode=OneWay}"
+					ToolTip.Tip="{DynamicResource Text.Toolbar.Tooltips.ShowPlanes}" >
+					<PathIcon Data="{StaticResource airplane_regular}"/>
+				</RadioButton>
+				<RadioButton
+					Command="{Binding ShowFlightPlans}"
+					IsChecked="{Binding ActiveViewModel, Converter={Converters:IsOfTypeConverter}, ConverterParameter={x:Type vm:FlightPlansViewModel}, Mode=OneWay}"
+					ToolTip.Tip="{DynamicResource Text.Toolbar.Tooltips.ShowFlightPlans}" >
+					<PathIcon Data="{StaticResource tasks_app_regular}"/>
+				</RadioButton>
+			</StackPanel>
+		</Border>
+
+		<Border
+			BorderBrush="Black"
+			BorderThickness="1"
+			CornerRadius="2"
+			Margin="2,0" >
+			<StackPanel Orientation="Horizontal">
+
+				<Button
+					Command="{Binding ShowConvertUtility}"
+					ToolTip.Tip="{DynamicResource Text.Toolbar.Tooltips.ConversionUtility}" >
+					<PathIcon Data="{StaticResource convert_range_regular}"/>
+				</Button>
+			</StackPanel>
+		</Border>
+		
+		<Border
+			BorderBrush="Black"
+			BorderThickness="1"
+			CornerRadius="2"
+			Margin="2,0" >
+			<StackPanel Orientation="Horizontal">
+
+				<Button
+					Command="{Binding ShowSettings}"
+					ToolTip.Tip="{DynamicResource Text.Toolbar.Tooltips.Settings}" >
+					<PathIcon Data="{StaticResource settings_regular}"/>
+				</Button>
+			</StackPanel>
+		</Border>
+		
+		<Border
+			BorderBrush="Black"
+			BorderThickness="1"
+			CornerRadius="2"
+			Margin="2,0" >
+			<StackPanel Orientation="Horizontal">
+
+				<Button
+            Command="{Binding ShowAbout}"
+			ToolTip.Tip="{DynamicResource Text.Toolbar.Tooltips.About}"
+            >
+					<PathIcon Data="{StaticResource info_regular}"/>
+				</Button>
+			</StackPanel>
+		</Border>
+	</StackPanel>
+</UserControl>

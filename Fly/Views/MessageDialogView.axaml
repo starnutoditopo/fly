@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Fly.ViewModels"
+             xmlns:views="clr-namespace:Fly.Views"
+			 xmlns:valueConverters="clr-namespace:Fly.ValueConverters"
+             x:Class="Fly.Views.MessageDialogView"
+             x:DataType="vm:MessageDialogViewModel"
+             >
+	<DockPanel
+		LastChildFill="True"
+		>
+		<PathIcon
+			DockPanel.Dock="Left"
+			Margin="10"
+			VerticalAlignment="Center"
+			Foreground="{Binding Path=Mode, Converter={valueConverters:MessageDialogModeToIconColorConverter}}"
+			Data="{Binding Path=Mode, Converter={valueConverters:MessageDialogModeToIconConverter}}"/>
+		<TextBlock
+			Margin="10"
+			VerticalAlignment="Center"
+			Text="{Binding Path=Message}" />
+	</DockPanel>
+</UserControl>

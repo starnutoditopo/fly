@@ -1,0 +1,187 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="700" d:DesignHeight="350"
+             xmlns:vm="clr-namespace:Fly.ViewModels"
+             xmlns:views="clr-namespace:Fly.Views"
+             xmlns:skp="clr-namespace:Avalonia.Controls.Skia;assembly=Avalonia.Controls.Skia"
+             x:Class="Fly.Views.AboutView"
+             x:DataType="vm:AboutViewModel"
+             xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             >
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:AboutViewModel />
+    </Design.DataContext>
+
+    <Grid RowDefinitions="*"
+          Margin="{OnPlatform 0, Linux=6}"
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center">
+
+        <Grid  ColumnDefinitions="Auto,*" >
+            <Image Grid.Column="0"
+                   Width="200" Height="200"
+                   Margin="8,0"
+                   Source="{SvgImage /Assets/Logo/logo.svg}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+            <StackPanel Grid.Column="1" Orientation="Vertical"
+                        Margin="0,8,32,8"
+                        VerticalAlignment="Stretch"
+                        >
+                <StackPanel Height="48" Orientation="Horizontal">
+                    <TextBlock Classes="bold" Text="Fly" FontSize="32" />
+                    <Border Margin="12,0,0,0" Height="20" CornerRadius="10"
+                            Background="{DynamicResource Brush.Accent1}"
+                            Effect="drop-shadow(0 0 6 #40000000)">
+                        <TextBlock Classes="monospace"
+                                   Margin="8,0" Text="{Binding Version}"
+                                   FontSize="12" Foreground="White"/>
+                    </Border>
+                </StackPanel>
+
+                <TextBlock Margin="2,0,0,0" Text="{DynamicResource Text.About.SubTitle}" FontSize="16"/>
+
+                <TextBlock Margin="2,8,0,0" Text="{DynamicResource Text.About.Copyright}" Foreground="{DynamicResource Brush.FG2}"/>
+
+                <StackPanel Orientation="Vertical" Margin="0,24,0,0">
+
+					<TextBlock Text="{DynamicResource Text.About.Disclaimer1}" />
+					<TextBlock Text="{DynamicResource Text.About.Disclaimer2}" />
+					<TextBlock Text="{DynamicResource Text.About.Disclaimer3}" />
+					<StackPanel Orientation="Horizontal" Height="18" Margin="0,2,0,0">
+						<TextBlock Text="{DynamicResource Text.About.SourceCode}" />
+
+						<TextBlock Text="Github"
+                                   Cursor="Hand"
+                                   Foreground="{DynamicResource Brush.Accent1}"
+                                   TextDecorations="Underline"
+                                   >
+                            <i:Interaction.Behaviors>
+                                <ia:EventTriggerBehavior EventName="PointerPressed">
+                                    <ia:EventTriggerBehavior.Actions>
+                                        <ia:InvokeCommandAction
+                                            Command="{Binding OpenGithubLinkUri}"/>
+                                    </ia:EventTriggerBehavior.Actions>
+                                </ia:EventTriggerBehavior>
+                            </i:Interaction.Behaviors>
+                            </TextBlock>
+                    </StackPanel>
+					<StackPanel Orientation="Horizontal" Height="18" Margin="0,2,0,0">
+						<TextBlock Text="{DynamicResource Text.About.Credits.OpenAIP}" />
+
+						<TextBlock Text="OpenAIP"
+                                   Cursor="Hand"
+                                   Foreground="{DynamicResource Brush.Accent1}"
+                                   TextDecorations="Underline"
+                                   >
+							<i:Interaction.Behaviors>
+								<ia:EventTriggerBehavior EventName="PointerPressed">
+									<ia:EventTriggerBehavior.Actions>
+										<ia:InvokeCommandAction
+                                            Command="{Binding OpenOpenAipLinkUri}"/>
+									</ia:EventTriggerBehavior.Actions>
+								</ia:EventTriggerBehavior>
+							</i:Interaction.Behaviors>
+						</TextBlock>
+					</StackPanel>
+
+					<StackPanel Orientation="Vertical" Margin="0,2,0,0">
+						<TextBlock Text="{DynamicResource Text.About.Credits.GeographicalInformationAndMaps}" />
+
+						<TextBlock Text="Open Street Map"
+                                   Margin="20,0"
+                                   Cursor="Hand"
+                                   Foreground="{DynamicResource Brush.Accent1}"
+                                   TextDecorations="Underline"
+                                   >
+							<i:Interaction.Behaviors>
+								<ia:EventTriggerBehavior EventName="PointerPressed">
+									<ia:EventTriggerBehavior.Actions>
+										<ia:InvokeCommandAction
+                                            Command="{Binding OpenOpenStreetMapUri}"/>
+									</ia:EventTriggerBehavior.Actions>
+								</ia:EventTriggerBehavior>
+							</i:Interaction.Behaviors>
+						</TextBlock>
+
+                        <TextBlock Text="MapTiler satellite"
+                                   Margin="20,0"
+                                   Cursor="Hand"
+                                   Foreground="{DynamicResource Brush.Accent1}"
+                                   TextDecorations="Underline"
+                                   >
+							<i:Interaction.Behaviors>
+								<ia:EventTriggerBehavior EventName="PointerPressed">
+									<ia:EventTriggerBehavior.Actions>
+										<ia:InvokeCommandAction
+                                            Command="{Binding OpenMapTilerSatelliteUri}"/>
+									</ia:EventTriggerBehavior.Actions>
+								</ia:EventTriggerBehavior>
+							</i:Interaction.Behaviors>
+						</TextBlock>
+						<TextBlock Text="Open Route Service"
+                                   Margin="20,0"
+                                   Cursor="Hand"
+                                   Foreground="{DynamicResource Brush.Accent1}"
+                                   TextDecorations="Underline"
+                                   >
+							<i:Interaction.Behaviors>
+								<ia:EventTriggerBehavior EventName="PointerPressed">
+									<ia:EventTriggerBehavior.Actions>
+										<ia:InvokeCommandAction
+                                            Command="{Binding OpenOpenRouteServiceUri}"/>
+									</ia:EventTriggerBehavior.Actions>
+								</ia:EventTriggerBehavior>
+							</i:Interaction.Behaviors>
+						</TextBlock>
+					</StackPanel>
+
+					<StackPanel Orientation="Horizontal" Height="18" Margin="0,2,0,0">
+						<TextBlock Text="{DynamicResource Text.About.Credits.MapsUi}" />
+
+						<TextBlock Text="MapsUI"
+                                   Cursor="Hand"
+                                   Foreground="{DynamicResource Brush.Accent1}"
+                                   TextDecorations="Underline"
+                                   >
+							<i:Interaction.Behaviors>
+								<ia:EventTriggerBehavior EventName="PointerPressed">
+									<ia:EventTriggerBehavior.Actions>
+										<ia:InvokeCommandAction
+                                            Command="{Binding OpenMapsUiUri}"/>
+									</ia:EventTriggerBehavior.Actions>
+								</ia:EventTriggerBehavior>
+							</i:Interaction.Behaviors>
+						</TextBlock>
+					</StackPanel>					
+					<!--<TextBlock Background="#0074D9">ABCD</TextBlock>
+					<TextBlock Background="#FF4136">ABCD</TextBlock>
+					<TextBlock Background="#2ECC40">ABCD</TextBlock>
+					<TextBlock Background="#FF851B">ABCD</TextBlock>
+					<TextBlock Background="#B10DC9">ABCD</TextBlock>
+					<TextBlock Background="#FFDC00">ABCD</TextBlock>
+					<TextBlock Background="#39CCCC">ABCD</TextBlock>
+					<TextBlock Background="#F012BE">ABCD</TextBlock>
+
+
+					<TextBlock Background="#A0D1E6">ABCD</TextBlock>
+					<TextBlock Background="#FFB3B3">ABCD</TextBlock>
+					<TextBlock Background="#A3E4C1">ABCD</TextBlock>
+					<TextBlock Background="#FFD1B2">ABCD</TextBlock>
+					<TextBlock Background="#D7B3E6">ABCD</TextBlock>
+					<TextBlock Background="#FFF1A3">ABCD</TextBlock>
+					<TextBlock Background="#B2E7E5">ABCD</TextBlock>
+					<TextBlock Background="#F1B3DA">ABCD</TextBlock>-->
+
+				</StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

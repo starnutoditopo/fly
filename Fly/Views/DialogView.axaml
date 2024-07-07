@@ -1,0 +1,38 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="100"
+             xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+             xmlns:vm="clr-namespace:Fly.ViewModels"
+             xmlns:views="clr-namespace:Fly.Views"
+             x:Class="Fly.Views.DialogView"
+             x:DataType="vm:DialogViewModel"
+             Background="{DynamicResource Brush.Window}"
+             >
+    <DockPanel LastChildFill="True">
+		<TextBlock
+			IsVisible="{Binding Title, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+			DockPanel.Dock="Top"
+			FontSize="18"
+			Classes="bold"
+			Text="{Binding Title}"
+			/>
+
+		<StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Button
+                Margin="10"
+                Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHostAvalonia:DialogHost}, Path=CloseDialogCommand}"
+                CommandParameter="{x:True}"
+                IsDefault="True"
+                DockPanel.Dock="Right" Content="{DynamicResource Text.Dialog.Ok}" />
+            <Button
+                Margin="10"
+                Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=dialogHostAvalonia:DialogHost}, Path=CloseDialogCommand}"
+                CommandParameter="{x:False}"
+                IsCancel="True"
+                DockPanel.Dock="Right" Content="{DynamicResource Text.Dialog.Cancel}"/>
+        </StackPanel>
+        <ContentControl Content="{Binding ContentViewModel}" />
+    </DockPanel>    
+</UserControl>

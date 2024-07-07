@@ -1,0 +1,48 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="300"
+			 xmlns:vm="clr-namespace:Fly.ViewModels"
+			 xmlns:views="clr-namespace:Fly.Views"
+			 x:Class="Fly.Views.PlanesView"
+			 x:DataType="vm:PlanesViewModel"
+			 >
+	<DockPanel>
+		<StackPanel DockPanel.Dock="Top">
+			<StackPanel Orientation="Horizontal">
+				<Button
+					Command="{Binding Add}"
+					ToolTip.Tip="{DynamicResource Text.Planes.Tooltips.Add}"
+					>
+					<PathIcon Data="{StaticResource add_regular}"/>
+				</Button>
+				<Button
+					Command="{Binding Edit}"
+					IsEnabled="{Binding CanEdit}"
+					ToolTip.Tip="{DynamicResource Text.Planes.Tooltips.Edit}"
+					>
+					<PathIcon Data="{StaticResource edit_regular}"/>
+				</Button>
+				<Button
+					Command="{Binding Remove}"
+					IsEnabled="{Binding CanRemove}"
+					ToolTip.Tip="{DynamicResource Text.Planes.Tooltips.Delete}"
+					>
+					<PathIcon Data="{StaticResource delete_regular}"/>
+				</Button>
+			</StackPanel>
+		</StackPanel>
+		<ListBox
+			ItemsSource="{Binding Planes}"
+			SelectedItem="{Binding SelectedPlane, Mode=TwoWay}">
+			<ListBox.ItemTemplate>
+				<DataTemplate x:DataType="vm:PlaneBaseViewModel">
+					<StackPanel>
+						<Label Content="{Binding DisplayName}" FontWeight="Bold" />
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</DockPanel>
+</UserControl>

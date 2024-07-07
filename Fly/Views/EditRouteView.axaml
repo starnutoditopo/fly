@@ -1,0 +1,58 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Fly.ViewModels"
+             xmlns:views="clr-namespace:Fly.Views"
+             x:Class="Fly.Views.EditRouteView"
+             x:DataType="vm:EditRouteViewModel"
+             >
+    <StackPanel Orientation="Vertical" Margin="8,0">
+        <!--<TextBlock FontSize="18"
+                   Classes="bold"
+                   Text="{DynamicResource Text.EditRoute.Title}"/>-->
+        <Grid
+            Margin="0,16,0,0"
+            RowDefinitions="32,*"
+            ColumnDefinitions="150,*">
+
+            <Label Grid.Row="0"
+                   Grid.Column="0"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Margin="0,0,8,0"
+                   Content="{DynamicResource Text.EditRoute.Name}"
+                   />
+            <TextBox Grid.Row="0"
+                     Grid.Column="1"
+                     Height="26"
+                     VerticalAlignment="Center"
+                     CornerRadius="2"
+                     Watermark="{DynamicResource Text.EditRoute.NameWatermark}"
+                     Text="{Binding Route.DisplayName, Mode=TwoWay}"
+                     />
+
+            <Label Grid.Row="1"
+                   Grid.Column="0"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Center"
+                   Margin="0,0,8,0"
+                   Content="{DynamicResource Text.EditRoute.Waypoints}"/>
+            <ListBox
+                Grid.Row="1"
+                Grid.Column="1"
+                ItemsSource="{Binding Route.Coordinates}"
+            >
+                <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="vm:CoordinateBaseViewModel">
+                        <StackPanel>
+                            <Label Content="{Binding DisplayName}" FontWeight="Bold" />
+                            <!--<views:CoordinateView DataContext="{Binding Coordinate, Mode=OneWay}" />-->
+                            <!--<CheckBox IsChecked="{Binding IsVisible, Mode=TwoWay}" />-->
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </StackPanel>
+</UserControl>

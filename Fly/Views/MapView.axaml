@@ -1,0 +1,96 @@
+﻿<UserControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+    x:Class="Fly.Views.MapView"
+    xmlns:vm="clr-namespace:Fly.ViewModels"
+    xmlns:mapsui="using:Mapsui.UI.Avalonia"
+    xmlns:AttachedProperties="clr-namespace:Fly.AttachedProperties"
+    xmlns:Behaviors="clr-namespace:Fly.Behaviors"
+    xmlns:Converters="clr-namespace:Fly.ValueConverters"
+    xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+    x:DataType="vm:DocumentViewModel">
+    <DockPanel LastChildFill="True">
+        <StackPanel
+            DockPanel.Dock="Top"
+            Orientation="Horizontal">
+            <RadioButton
+                IsChecked="{Binding SelectedTool, Converter={Converters:IsEqualConverter}, ConverterParameter={x:Static vm:MapEditTools.None}}"
+                ToolTip.Tip="{DynamicResource Text.MapView.Tooltips.Pan}"
+                >
+				<PathIcon Data="{StaticResource arrow_move_regular}"/>
+			</RadioButton>
+            <RadioButton
+                IsChecked="{Binding SelectedTool, Converter={Converters:IsEqualConverter}, ConverterParameter={x:Static vm:MapEditTools.AddMarker}}"
+                ToolTip.Tip="{DynamicResource Text.MapView.Tooltips.AddMarker}"
+                >
+				<Canvas Width="20" Height="20">
+					<PathIcon Data="{StaticResource location_regular}"/>
+				</Canvas>
+            </RadioButton>
+
+            <RadioButton
+                IsChecked="{Binding SelectedTool, Converter={Converters:IsEqualConverter}, ConverterParameter={x:Static vm:MapEditTools.AddRoute}}"
+                ToolTip.Tip="{DynamicResource Text.MapView.Tooltips.AddRoute}"
+                >
+                <PathIcon Data="{StaticResource data_line_regular}"/>
+            </RadioButton>
+            <RadioButton
+                IsChecked="{Binding SelectedTool, Converter={Converters:IsEqualConverter}, ConverterParameter={x:Static vm:MapEditTools.Modify}}"
+				ToolTip.Tip="{DynamicResource Text.MapView.Tooltips.Edit}"
+                >
+				<PathIcon Data="{StaticResource edit_regular}"/>
+			</RadioButton>
+            <RadioButton
+                IsChecked="{Binding SelectedTool, Converter={Converters:IsEqualConverter}, ConverterParameter={x:Static vm:MapEditTools.Delete}}"
+				ToolTip.Tip="{DynamicResource Text.MapView.Tooltips.Delete}"
+                >
+				<PathIcon Data="{StaticResource erase_regular}"/>
+			</RadioButton>
+
+            <Label VerticalAlignment="Center" DockPanel.Dock="Left" Content="Rotation: " />
+            <Slider
+                Minimum="0"
+                Maximum="360"
+                MinWidth="100"
+                Value="{Binding Rotation, Mode=TwoWay}" />
+            <Label VerticalAlignment="Center" Content="{Binding Rotation, Converter={Converters:RotationToStringConverter}}" />
+        </StackPanel>
+
+        <mapsui:MapControl
+            x:Name="MapControl"
+            AttachedProperties:MapControlAttachedProperties.MapRotation="{Binding Rotation}"
+            AttachedProperties:MapControlAttachedProperties.MapEditTool="{Binding SelectedTool}"
+            AttachedProperties:MapControlAttachedProperties.Layers="{Binding Layers.Layers}"
+            AttachedProperties:MapControlAttachedProperties.Markers="{Binding Markers.Markers}"
+            AttachedProperties:MapControlAttachedProperties.Routes="{Binding Routes.Routes}"
+            
+			AttachedProperties:MapControlAttachedProperties.InfoRequestCommand="{Binding InfoRequest}"
+			
+            AttachedProperties:MapControlAttachedProperties.AddingNewMarkerCommand="{Binding AddingNewMarker}"
+            AttachedProperties:MapControlAttachedProperties.StartMovingMarkerCommand="{Binding StartMovingMarker}"
+            AttachedProperties:MapControlAttachedProperties.MovingMarkerCommand="{Binding MovingMarker}"
+            AttachedProperties:MapControlAttachedProperties.EndMovingMarkerCommand="{Binding EndMovingMarker}"
+            AttachedProperties:MapControlAttachedProperties.DeleteMarkerCommand="{Binding DeleteMarker}"
+            
+            AttachedProperties:MapControlAttachedProperties.StartDrawingNewRouteCommand="{Binding StartDrawingNewRoute}"
+            AttachedProperties:MapControlAttachedProperties.HoveringNextPointOfRouteCommand="{Binding HoveringNextPointOfRoute}"
+            AttachedProperties:MapControlAttachedProperties.AddingNextWaypointToNewRouteCommand="{Binding AddingNextWaypointToNewRoute}"
+            AttachedProperties:MapControlAttachedProperties.EndDrawingNewRouteCommand="{Binding EndDrawingNewRoute}"
+            
+            AttachedProperties:MapControlAttachedProperties.StartModifyingRouteCommand="{Binding StartModifyingRoute}"
+            AttachedProperties:MapControlAttachedProperties.ModifyingRouteCommand="{Binding ModifyingRoute}"
+            AttachedProperties:MapControlAttachedProperties.EndModifyingRouteCommand="{Binding EndModifyingRoute}"
+            AttachedProperties:MapControlAttachedProperties.WaypointInsertedIntoRouteCommand="{Binding WaypointInsertedIntoRoute}"
+            
+            AttachedProperties:MapControlAttachedProperties.DeleteRouteWaypointCommand="{Binding DeleteRouteWaypoint}"
+            AttachedProperties:MapControlAttachedProperties.DeleteRouteCommand="{Binding DeleteRoute}"
+        >
+            <i:Interaction.Behaviors>
+                <Behaviors:MapControlBehavior />
+            </i:Interaction.Behaviors>
+        </mapsui:MapControl>
+    </DockPanel>
+</UserControl>

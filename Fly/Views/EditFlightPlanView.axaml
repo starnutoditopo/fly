@@ -1,0 +1,181 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:dialogHostAvalonia="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+             xmlns:vm="clr-namespace:Fly.ViewModels"
+             xmlns:views="clr-namespace:Fly.Views"
+			 x:Class="Fly.Views.EditFlightPlanView"
+             x:DataType="vm:EditFlightPlanViewModel"
+             >
+	<DockPanel LastChildFill="True">
+		<!--<TextBlock
+			DockPanel.Dock="Top"
+			FontSize="18"
+			Classes="bold"
+			Text="{DynamicResource Text.EditFlightPlan.Title}"/>-->
+		<Grid
+			DockPanel.Dock="Top"
+			Margin="0,16,0,0"
+			RowDefinitions="32,32,32,32,32,32,32,32"
+			ColumnDefinitions="150,*">
+
+			<Button
+				Command="{Binding CopyToClipboard}"
+				ToolTip.Tip="{DynamicResource Text.EditFlightPlan.Tooltips.Copy}"
+				Content="Copy" >
+				<PathIcon Data="{StaticResource copy_regular}"/>
+			</Button>
+			<Label
+				Grid.Row="0"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				Margin="0,0,8,0"
+				Content="{DynamicResource Text.EditFlightPlan.Name}"
+				/>
+			<TextBox
+				Grid.Row="0"
+				Grid.Column="1"
+				Height="26"
+				VerticalAlignment="Center"
+				CornerRadius="2"
+				Watermark="{DynamicResource Text.EditFlightPlan.NameWatermark}"
+				Text="{Binding FlightPlan.DisplayName, Mode=TwoWay}"
+				/>
+
+			<Label
+				Grid.Row="1"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				Margin="0,0,8,0"
+				Content="{DynamicResource Text.EditFlightPlan.Plane}"
+				/>
+			<ComboBox
+				Grid.Row="1"
+				Grid.Column="1"
+				HorizontalAlignment="Stretch"
+				Height="26"
+				IsTextSearchEnabled="False"
+				ItemsSource="{Binding AvailablePlanes}"
+				SelectedItem="{Binding FlightPlan.Plane}"
+				DisplayMemberBinding="{Binding DisplayName}"
+				/>
+
+			<Label
+				Grid.Row="2"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				Margin="0,0,8,0"
+				Content="{DynamicResource Text.EditFlightPlan.Route}"
+				/>
+			<ComboBox
+				Grid.Row="2"
+				Grid.Column="1"
+				HorizontalAlignment="Stretch"
+				Height="26"
+				IsTextSearchEnabled="False"
+                ItemsSource="{Binding AvailableRoutes}"
+                SelectedItem="{Binding FlightPlan.Route}"
+                DisplayMemberBinding="{Binding DisplayName}"
+				/>
+
+			<Label
+				Grid.Row="3"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				Margin="0,0,8,0"
+				Content="{DynamicResource Text.EditFlightPlan.ResidualAutonomy}"
+				/>
+			<TextBox
+				Grid.Row="3"
+				Grid.Column="1"
+				Height="26"
+				VerticalAlignment="Center"
+				CornerRadius="2"
+				Watermark="{DynamicResource Text.EditFlightPlan.ResidualAutonomyWatermark}"
+				Text="{Binding FlightPlan.ResidualAutonomy, Mode=TwoWay}"
+				/>
+
+			<Label
+				Grid.Row="4"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				Margin="0,0,8,0"
+				Content="{DynamicResource Text.EditFlightPlan.TimeToReachAlternateField}"
+				/>
+			<TextBox
+				Grid.Row="4"
+				Grid.Column="1"
+				Height="26"
+				VerticalAlignment="Center"
+				CornerRadius="2"
+				Watermark="{DynamicResource Text.EditFlightPlan.TimeToReachAlternateFieldWatermark}"
+			    Text="{Binding FlightPlan.TimeToReachAlternateField, Mode=TwoWay}"
+				/>
+
+			<Label
+				Grid.Row="5"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				Margin="0,0,8,0"
+				Content="{DynamicResource Text.EditFlightPlan.RhumbLength}"
+				/>
+			<TextBlock
+				Grid.Row="5"
+				Grid.Column="1"
+				Height="26"
+				VerticalAlignment="Center"
+			    Text="{Binding FlightPlan.Route.RouteLength}"
+				/>
+
+			<Label
+				Grid.Row="6"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				Margin="0,0,8,0"
+				Content="{DynamicResource Text.EditFlightPlan.FlightDuration}"
+				/>
+			<TextBlock
+				Grid.Row="6"
+				Grid.Column="1"
+				Height="26"
+				VerticalAlignment="Center"
+			    Text="{Binding FlightPlan.FlightDuration}"
+				/>
+
+			<Label
+				Grid.Row="7"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				Margin="0,0,8,0"
+				Content="{DynamicResource Text.EditFlightPlan.TotalRequiredFuel}"
+				/>
+			<TextBlock
+				Grid.Row="7"
+				Grid.Column="1"
+				Height="26"
+				VerticalAlignment="Center"
+			    Text="{Binding FlightPlan.TotalRequiredFuel}"
+				/>
+		</Grid>
+		<ItemsControl
+			ItemsSource="{Binding FlightPlan.Timeline}"
+			>
+			<ItemsControl.Template>
+				<ControlTemplate TargetType="ItemsControl">
+					<ScrollViewer>
+						<ItemsPresenter/>
+					</ScrollViewer>
+				</ControlTemplate>
+			</ItemsControl.Template>
+		</ItemsControl>
+	</DockPanel>
+</UserControl>

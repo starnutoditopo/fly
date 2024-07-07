@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="200"
+             xmlns:dialogHost="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+
+
+             xmlns:vm="clr-namespace:Fly.ViewModels"
+             xmlns:v="clr-namespace:Fly.Views"
+             xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             
+             x:Class="Fly.Views.MainView"
+             x:DataType="vm:MainViewModel">
+    <i:Interaction.Behaviors>
+        <ia:EventTriggerBehavior EventName="Loaded">
+            <ia:EventTriggerBehavior.Actions>
+                <ia:InvokeCommandAction Command="{Binding Loaded}"/>
+            </ia:EventTriggerBehavior.Actions>
+        </ia:EventTriggerBehavior>
+    </i:Interaction.Behaviors>
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <!--<vm:MainViewModel />-->
+    </Design.DataContext>
+
+	<dialogHost:DialogHost CloseOnClickAway="False">
+		<!-- put the content over which the dialog is shown here (e.g. your main window grid)-->
+		<DockPanel LastChildFill="True">
+			<v:MenuView DockPanel.Dock="Top" DataContext="{Binding}"/>
+			<ContentControl Content="{Binding ActiveViewModel}" />
+		</DockPanel>
+	</dialogHost:DialogHost>
+</UserControl>

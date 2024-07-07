@@ -1,0 +1,85 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Fly.ViewModels"
+             xmlns:AttachedProperties="clr-namespace:Fly.AttachedProperties"
+             xmlns:Behaviors="clr-namespace:Fly.Behaviors"
+             x:Class="Fly.Views.ConversionsView"
+			 x:DataType="vm:ConversionsViewModel"
+			 >
+
+	<StackPanel Orientation="Vertical" Margin="8,0">
+		<!--<TextBlock
+			FontSize="18"
+			Classes="bold"
+			Text="{DynamicResource Text.ConversionUtility.Title}"/>-->
+		<Grid
+			Margin="0,16,0,0"
+			RowDefinitions="32,32,32"
+			ColumnDefinitions="150,*,96">
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				Margin="0,0,8,0"
+				Content="{DynamicResource Text.ConversionUtility.SourceValue}"
+				/>
+			<TextBox
+				Grid.Row="0"
+				Grid.Column="1"
+				Height="26"
+				VerticalAlignment="Center"
+				CornerRadius="2"
+				Text="{Binding Input, Mode=TwoWay}"
+					/>
+			<ComboBox
+				Grid.Row="0"
+				Grid.Column="2"
+				HorizontalAlignment="Stretch"
+				DockPanel.Dock="Right"
+				ItemsSource="{Binding SourceUnitsOfMeasure}"
+				SelectedItem="{Binding SourceUnitOfMeasure, Mode=TwoWay}"
+				DisplayMemberBinding="{Binding DisplayName}"
+					/>
+			<Label
+				Grid.Row="2"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				Margin="0,0,8,0"
+				Content="{DynamicResource Text.ConversionUtility.DestinationValue}"
+				/>
+			<Button
+				Grid.Row="1"
+				Grid.Column="2"
+				HorizontalAlignment="Center"
+				Command="{Binding SwitchUnitsOfMeasure}"
+				IsEnabled="{Binding CanSwitchUnitsOfMeasure}"
+				ToolTip.Tip="{DynamicResource Text.ConversionUtility.Tooltips.SwitchUnitsOfMeasure}"
+                >
+				<PathIcon Data="{StaticResource arrow_bidirectional_up_down}"/>
+			</Button>
+
+			<TextBox
+				Grid.Row="2"
+				Grid.Column="1"
+				 Height="26"
+				 VerticalAlignment="Center"
+				 CornerRadius="2"
+				 Text="{Binding Output, Mode=OneWay}"
+				 IsReadOnly="True"
+					 />
+			<ComboBox
+				Grid.Row="2"
+				Grid.Column="2"
+				HorizontalAlignment="Stretch"
+				ItemsSource="{Binding TargetUnitsOfMeasure}"
+				SelectedItem="{Binding TargetUnitOfMeasure, Mode=TwoWay}"
+				DisplayMemberBinding="{Binding DisplayName}"
+					/>
+		</Grid>
+	</StackPanel>
+</UserControl>

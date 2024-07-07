@@ -1,0 +1,74 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
+             xmlns:vm="clr-namespace:Fly.ViewModels"
+			 xmlns:v="clr-namespace:Fly.Views"
+             xmlns:converters="clr-namespace:Fly.ValueConverters"
+             x:Class="Fly.Views.LayersView"
+             x:DataType="vm:LayersViewModel"
+			 x:Name="root"
+             >
+	<DockPanel>
+		<StackPanel DockPanel.Dock="Top">
+			<StackPanel Orientation="Horizontal">
+				<Button
+					ToolTip.Tip="{DynamicResource Text.Layers.Tooltips.Add}"
+                    >
+					<PathIcon Data="{StaticResource add_regular}"/>
+					<Button.Flyout>
+						<MenuFlyout
+							ItemsSource="{Binding AvailableLayerTypes}">
+							<MenuFlyout.ItemTemplate>
+								<DataTemplate x:DataType="{x:Type vm:LayerType}">
+									<MenuItem
+										Command="{Binding ElementName=root, Path=((vm:LayersViewModel)DataContext).AddNewLayer}"
+										CommandParameter="{Binding}"
+										Header="{Binding DisplayName}"
+										IsEnabled="{Binding CanCreateLayer}"
+										/>
+								</DataTemplate>
+							</MenuFlyout.ItemTemplate>
+						</MenuFlyout>
+					</Button.Flyout>
+				</Button>
+				<Button
+                    Command="{Binding Remove}"
+                    IsEnabled="{Binding CanRemove}"
+					ToolTip.Tip="{DynamicResource Text.Layers.Tooltips.Delete}"
+                    >
+					<PathIcon Data="{StaticResource delete_regular}"/>
+				</Button>
+				<Button
+                    Command="{Binding MoveUp}"
+                    IsEnabled="{Binding CanMoveUp}"
+					ToolTip.Tip="{DynamicResource Text.Layers.Tooltips.MoveUp}"
+                    >
+					<PathIcon Data="{StaticResource caret_up_regular}"/>
+				</Button>
+				<Button
+                    Command="{Binding MoveDown}"
+                    IsEnabled="{Binding CanMoveDown}"
+					ToolTip.Tip="{DynamicResource Text.Layers.Tooltips.MoveDown}"
+                    >
+					<PathIcon Data="{StaticResource caret_down_regular}"/>
+				</Button>
+				<Slider Width="200" IsEnabled="{Binding SelectedLayer, Converter={x:Static ObjectConverters.IsNotNull}}" Minimum="0" Maximum="1" Value="{Binding SelectedLayer.Opacity, Mode=TwoWay}" />
+			</StackPanel>
+		</StackPanel>
+		<ListBox
+            ItemsSource="{Binding Layers}"
+            SelectedItem="{Binding SelectedLayer, Mode=TwoWay}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel>
+						<Label Content="{Binding DisplayName}" FontWeight="Bold"/>
+						<Label>Opacity (%): </Label>
+						<Label Content="{Binding Opacity, Converter={converters:OpacityToPercentageConverter}}" />
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</DockPanel>
+</UserControl>

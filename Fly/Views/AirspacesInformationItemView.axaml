@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="300"
+             xmlns:vm="clr-namespace:Fly.ViewModels"
+             xmlns:views="clr-namespace:Fly.Views"
+			 xmlns:converters="clr-namespace:Fly.ValueConverters"
+             x:Class="Fly.Views.AirspacesInformationItemView"
+             x:DataType="vm:AirspacesInformationItemViewModel"
+             >
+	<Grid ColumnDefinitions="30,*">
+		<Viewbox
+			Stretch="UniformToFill"
+			ToolTip.Tip="ICAO class"
+			VerticalAlignment="Top">
+			<TextBlock
+				Text="{Binding IcaoClass, Converter={converters:IcaoClassToEmojiConverter}}" />
+		</Viewbox>
+
+		<StackPanel Grid.Column="1">
+			<TextBlock Text="{Binding Name}" FontWeight="Bold" />
+			<TextBlock Text="{Binding Type}" />
+			<StackPanel Orientation="Horizontal" >
+				<ContentControl Content="{Binding LowerLimit}" />
+				<TextBlock Text="→" />
+				<ContentControl Content="{Binding UpperLimit}" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal" ToolTip.Tip="Radio frequency" >
+				<PathIcon Data="{StaticResource sound_source_regular}"/>
+				<ListBox ItemsSource="{Binding Path=Frequencies}" />
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</UserControl>

@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="300"
+             xmlns:vm="clr-namespace:Fly.ViewModels"
+             xmlns:views="clr-namespace:Fly.Views"
+             x:Class="Fly.Views.MarkersView"
+             x:DataType="vm:MarkersViewModel"
+             >
+    <DockPanel LastChildFill="True">
+		<DockPanel DockPanel.Dock="Top">
+                <Button
+                    Command="{Binding Add}"
+					ToolTip.Tip="{DynamicResource Text.Markers.Tooltips.Add}"
+                    >
+					<PathIcon Data="{StaticResource add_regular}"/>
+				</Button>
+                <Button
+                    Command="{Binding Edit}"
+                    IsEnabled="{Binding CanEdit}"
+    				ToolTip.Tip="{DynamicResource Text.Markers.Tooltips.Edit}"
+                    >
+					<PathIcon Data="{StaticResource edit_regular}"/>
+				</Button>
+                <Button
+                    Command="{Binding Remove}"
+                    IsEnabled="{Binding CanRemove}"
+					ToolTip.Tip="{DynamicResource Text.Markers.Tooltips.Delete}"
+                    >
+					<PathIcon Data="{StaticResource delete_regular}"/>
+				</Button>
+		</DockPanel>
+        <ListBox 
+            ItemsSource="{Binding Markers}"
+            SelectedItem="{Binding SelectedMarker, Mode=TwoWay}">
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="vm:MarkerBaseViewModel">
+                    <StackPanel>
+                        <views:CoordinateView DataContext="{Binding Coordinate, Mode=OneWay}" />
+                        <CheckBox IsChecked="{Binding IsVisible, Mode=TwoWay}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</UserControl>

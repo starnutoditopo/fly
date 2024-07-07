@@ -1,0 +1,106 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Fly.ViewModels"
+             xmlns:AttachedProperties="clr-namespace:Fly.AttachedProperties"
+             xmlns:Behaviors="clr-namespace:Fly.Behaviors"
+			 xmlns:valueConverters="clr-namespace:Fly.ValueConverters"
+             x:Class="Fly.Views.WaypointDetailsView"
+             x:DataType="vm:WaypointDetailsViewModel"
+             >
+	<Grid
+		ColumnDefinitions="20,*"
+		VerticalAlignment="Stretch"
+		>
+		<Grid
+			RowDefinitions="*,*"
+            Width="20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Stretch"
+            >
+				<Rectangle
+					Grid.Row="0"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					StrokeThickness="0"
+					Fill="DarkBlue"
+					Width="3">
+					<Rectangle.IsVisible>
+						<MultiBinding Converter="{valueConverters:IsNotFirstItemInCollectionConverter}">
+							<Binding />
+							<Binding RelativeSource="{RelativeSource AncestorType={x:Type ItemsControl}}" Path="ItemsSource" Mode="OneWay" />
+						</MultiBinding>
+					</Rectangle.IsVisible>
+				</Rectangle>
+				<Rectangle
+					Grid.Row="1"
+					HorizontalAlignment="Stretch"
+					VerticalAlignment="Stretch"
+					StrokeThickness="0"
+					Fill="DarkBlue"
+					Width="3">
+					<Rectangle.IsVisible>
+						<MultiBinding Converter="{valueConverters:IsNotLastItemInCollectionConverter}">
+							<Binding />
+							<Binding RelativeSource="{RelativeSource AncestorType={x:Type ItemsControl}}" Path="ItemsSource" Mode="OneWay" />
+						</MultiBinding>
+					</Rectangle.IsVisible>
+				</Rectangle>
+			<Ellipse
+				Grid.RowSpan="2"
+				HorizontalAlignment ="Center"
+				VerticalAlignment="Center"
+				StrokeThickness="3"
+				Stroke="DarkBlue"
+				Fill="White"
+				Width="11"
+				Height="11"
+                />
+		</Grid>
+		<Border
+			Grid.Column="1"
+			CornerRadius="10"
+			BorderBrush="Black"
+			BorderThickness="2"
+			Margin="0,5"
+			>
+		<ContentControl			
+			DataContext="{Binding Coordinate}"
+			>
+			<StackPanel VerticalAlignment="Center" Margin="4">
+				<TextBlock IsVisible="{Binding DisplayName, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+					<Run Text="{Binding DisplayName, Mode=OneWay}"/>
+				</TextBlock>
+				<TextBlock IsVisible="{Binding City, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+					<Run Text="("/>
+					<Run Text="{Binding City, Mode=OneWay}"/>
+					<Run Text=")"/>
+				</TextBlock>
+				<TextBlock>
+					<Run Text="("/>
+					<Run Text="{Binding Latitude, StringFormat={}{0:0.00}, Mode=OneWay}"/>
+					<Run Text="; "/>
+					<Run Text="{Binding Longitude, StringFormat={}{0:0.00}, Mode=OneWay}"/>
+					<Run Text=")"/>
+				</TextBlock>
+				<TextBlock IsVisible="{Binding Elevation, Converter={x:Static ObjectConverters.IsNotNull}}">
+					<Run Text="Elevation: "/>
+					<Run Text="{Binding Elevation, StringFormat={}{0:0.00}, Mode=OneWay}"/>
+					<Run Text="m"/>
+				</TextBlock>
+				<!--<ToolBar>
+                <Button cal:Message.Attach="[Event Click] = [Action UpdateGeoCodingInformation()]">
+                    <Button.ToolTip>Update geo-coding information</Button.ToolTip>
+                    <iconPacks:PackIconBoxIcons Kind="RegularWorld" />
+                </Button>
+                <Button cal:Message.Attach="[Event Click] = [Action UpdateElevationInformation()]">
+                    <Button.ToolTip>Update elevation information</Button.ToolTip>
+                    <iconPacks:PackIconBoxIcons Kind="RegularArrowFromBottom" />
+                </Button>
+            </ToolBar>-->
+			</StackPanel>
+		</ContentControl>
+		</Border>
+	</Grid>
+</UserControl>

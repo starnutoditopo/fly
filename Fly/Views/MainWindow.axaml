@@ -1,0 +1,16 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Fly.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:Fly.Views"
+		xmlns:valueConverters="clr-namespace:Fly.ValueConverters"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="250"
+        x:Class="Fly.Views.MainWindow"
+        Icon="/Assets/Logo/logo.ico"
+		x:DataType="vm:MainViewModel"		
+        Title="{Binding ElementName=mainView, Path=((vm:MainViewModel)DataContext).DocumentInformation.DisplayName, Mode=OneWay, Converter={valueConverters:MainViewModelToWindowTitleConverter}}"
+        Background="{DynamicResource Brush.Window}"
+        >
+    <views:MainView x:Name="mainView" />
+</Window>

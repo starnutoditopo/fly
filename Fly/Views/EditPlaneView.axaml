@@ -1,0 +1,103 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Fly.ViewModels"
+             xmlns:views="clr-namespace:Fly.Views"
+             x:Class="Fly.Views.EditPlaneView"
+             x:DataType="vm:EditPlaneViewModel"
+             >
+	<StackPanel Orientation="Vertical" Margin="8,0">
+		<!--<TextBlock
+			FontSize="18"
+			Classes="bold"
+			Text="{DynamicResource Text.EditPlane.Title}"/>-->
+		<Grid
+			Margin="0,16,0,0"
+			RowDefinitions="32,32,32,32"
+			ColumnDefinitions="150,*">
+			<Label
+				Grid.Row="0"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				Margin="0,0,8,0"
+				Content="{DynamicResource Text.EditPlane.Name}"
+				/>
+			<TextBox
+				Grid.Row="0"
+				Grid.Column="1"
+				Height="26"
+				VerticalAlignment="Center"
+				CornerRadius="2"
+				Watermark="{DynamicResource Text.EditPlane.NameWatermark}"
+				Text="{Binding Plane.DisplayName, Mode=TwoWay}"
+				/>
+			<Label
+				Grid.Row="1"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				Margin="0,0,8,0"
+				Content="{DynamicResource Text.EditPlane.RegistrationNumber}"
+				/>
+			<TextBox
+				Grid.Row="1"
+				Grid.Column="1"
+				Height="26"
+				VerticalAlignment="Center"
+				CornerRadius="2"
+				Watermark="{DynamicResource Text.EditPlane.RegistrationNumberWatermark}"
+				Text="{Binding Plane.RegistrationNumber, Mode=TwoWay}"
+				/>
+			<Label
+				Grid.Row="2"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				Margin="0,0,8,0"
+				Content="{DynamicResource Text.EditPlane.CruiseSpeed}"
+				/>
+			<DockPanel Grid.Row="2" Grid.Column="1" LastChildFill="True">
+				<ComboBox
+					DockPanel.Dock="Right"
+					ItemsSource="{Binding AvailableUnitsOfMeasureForSpeed}"
+					SelectedItem="{Binding Plane.CruiseSpeedUnitOfMeasure}"
+					DisplayMemberBinding="{Binding DisplayName}"
+					/>
+				<TextBox
+					Height="26"
+					VerticalAlignment="Center"
+					CornerRadius="2"
+					Text="{Binding Plane.CruiseSpeed, Mode=TwoWay}"
+					/>
+			</DockPanel>
+
+			<Label
+				Grid.Row="3"
+				Grid.Column="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Center"
+				Margin="0,0,8,0"
+				Content="{DynamicResource Text.EditPlane.MeanFuelConsumption}"
+				/>
+			<DockPanel
+				Grid.Row="3"
+				Grid.Column="1"
+				LastChildFill="True">
+				<ComboBox
+					DockPanel.Dock="Right"
+					ItemsSource="{Binding AvailableUnitsOfMeasureForFuelConsumption}"
+					SelectedItem="{Binding Plane.MeanFuelConsumptionUnitOfMeasure}"
+					DisplayMemberBinding="{Binding DisplayName}"
+					/>
+				<TextBox
+					 Height="26"
+					 VerticalAlignment="Center"
+					 CornerRadius="2"
+					 Text="{Binding Plane.MeanFuelConsumption, Mode=TwoWay}"
+					 />
+			</DockPanel>
+		</Grid>
+	</StackPanel>
+</UserControl>

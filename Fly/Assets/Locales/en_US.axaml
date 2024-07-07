@@ -1,0 +1,167 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<x:String x:Key="Text.ApplicationNotificationInformation.Title" xml:space="preserve">Fly - Information</x:String>
+	<x:String x:Key="Text.ApplicationNotificationError.Title" xml:space="preserve">Fly - Error</x:String>
+
+	<x:String x:Key="Text.About.SubTitle" xml:space="preserve">A buggy application for hobby pilots to plan their flights.</x:String>
+	<x:String x:Key="Text.About.Copyright" xml:space="preserve">Author: Starnuto di topo</x:String>
+	<x:String x:Key="Text.About.Disclaimer1" xml:space="preserve">⚠️ For educational purposes only!</x:String>
+	<x:String x:Key="Text.About.Disclaimer2" xml:space="preserve">⚠️ Absolutely NOT suitable for practical planning!</x:String>
+	<x:String x:Key="Text.About.Disclaimer3" xml:space="preserve">⚠️ Use at your own risk!</x:String>
+	<x:String x:Key="Text.About.SourceCode" xml:space="preserve">• Source code can be found on </x:String>
+	<x:String x:Key="Text.About.Credits.OpenAIP" xml:space="preserve">• Aeronautical maps and data provided by: </x:String>
+	<x:String x:Key="Text.About.Credits.GeographicalInformationAndMaps" xml:space="preserve">• Geographical information and maps provided by: </x:String>
+	<x:String x:Key="Text.About.Credits.MapsUi" xml:space="preserve">• Map control is: </x:String>
+
+	<x:String x:Key="Text.EditCoordinate.Title" xml:space="preserve">Coordinate information</x:String>
+	<x:String x:Key="Text.EditCoordinate.DisplayName" xml:space="preserve">Name</x:String>
+	<x:String x:Key="Text.EditCoordinate.DisplayNameWatermark" xml:space="preserve">&lt;name&gt;</x:String>
+	<x:String x:Key="Text.EditCoordinate.Latitude" xml:space="preserve">Latitude</x:String>
+	<x:String x:Key="Text.EditCoordinate.Longitude" xml:space="preserve">Longitude</x:String>
+	<x:String x:Key="Text.EditCoordinate.Elevation" xml:space="preserve">Elevation</x:String>
+	<x:String x:Key="Text.EditCoordinate.City" xml:space="preserve">City</x:String>
+	<x:String x:Key="Text.EditCoordinate.Tooltips.UpdateAirspaceInformation" xml:space="preserve">Update airspace information</x:String>
+	<x:String x:Key="Text.EditCoordinate.Tooltips.UpdateElevationInformation" xml:space="preserve">Update elevation information</x:String>
+	<x:String x:Key="Text.EditCoordinate.Tooltips.UpdateGeoCodingInformation" xml:space="preserve">Update geo-coding information</x:String>
+
+	<x:String x:Key="Text.MainViewModel.NoDocument" xml:space="preserve">&lt;unnamed document&gt;</x:String>
+
+	<x:String x:Key="Text.EditSettings.Title" xml:space="preserve">Settings</x:String>
+
+	<x:String x:Key="Text.EditSettings.MapTilerSatelliteAPISectionTitle" xml:space="preserve">MapTiler</x:String>
+	<x:String x:Key="Text.EditSettings.MapTilerSatelliteAPIKey" xml:space="preserve">API key</x:String>
+	<x:String x:Key="Text.EditSettings.MapTilerSatelliteAPIKeyWatermark" xml:space="preserve">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</x:String>
+	<x:String x:Key="Text.EditSettings.MapTilerSatelliteAPIUrlFormatter" xml:space="preserve">URL formatter</x:String>
+	<x:String x:Key="Text.EditSettings.MapTilerSatelliteAPIUrlFormatterWatermark" xml:space="preserve">https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key={K}</x:String>
+	<x:String x:Key="Text.EditSettings.MapTilerSatelliteAPIUserAgent" xml:space="preserve">User agent</x:String>
+	<x:String x:Key="Text.EditSettings.MapTilerSatelliteAPIUserAgentWatermark" xml:space="preserve">fly</x:String>
+
+	<x:String x:Key="Text.EditSettings.OpenStreetMapAPISectionTitle" xml:space="preserve">Open Street Map</x:String>
+	<x:String x:Key="Text.EditSettings.OpenStreetMapAPIUrlFormatter" xml:space="preserve">URL formatter</x:String>
+	<x:String x:Key="Text.EditSettings.OpenStreetMapAPIUrlFormatterWatermark" xml:space="preserve">https://tile.openstreetmap.org/{z}/{x}/{y}.png</x:String>
+	<x:String x:Key="Text.EditSettings.OpenStreetMapAPIUserAgent" xml:space="preserve">User agent</x:String>
+	<x:String x:Key="Text.EditSettings.OpenStreetMapAPIUserAgentWatermark" xml:space="preserve">fly</x:String>
+
+	<x:String x:Key="Text.EditSettings.OpenAipAPISectionTitle" xml:space="preserve">Open AIP</x:String>
+	<x:String x:Key="Text.EditSettings.OpenAipAPI_Api_BaseUrl" xml:space="preserve">API base URL</x:String>
+	<x:String x:Key="Text.EditSettings.OpenAipAPI_Api_BaseUrlWatermark" xml:space="preserve">https://api.core.openaip.net/api/</x:String>
+	<x:String x:Key="Text.EditSettings.OpenAipAPIKey" xml:space="preserve">API key</x:String>
+	<x:String x:Key="Text.EditSettings.OpenAipAPIKeyWatermark" xml:space="preserve">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</x:String>
+	<x:String x:Key="Text.EditSettings.OpenAipAPIUrlFormatter" xml:space="preserve">URL formatter</x:String>
+	<x:String x:Key="Text.EditSettings.OpenAipAPIUrlFormatterWatermark" xml:space="preserve">https://{s}.api.tiles.openaip.net/api/data/openaip/{z}/{x}/{y}.png?apiKey={k}</x:String>
+	<x:String x:Key="Text.EditSettings.OpenAipAPIServersList" xml:space="preserve">Servers list</x:String>
+	<x:String x:Key="Text.EditSettings.OpenAipAPIServersListWatermark" xml:space="preserve">a;b;c</x:String>
+	<x:String x:Key="Text.EditSettings.OpenAipAPIUserAgent" xml:space="preserve">User agent</x:String>
+	<x:String x:Key="Text.EditSettings.OpenAipAPIUserAgentWatermark" xml:space="preserve">fly</x:String>
+	
+	<x:String x:Key="Text.EditSettings.OpenRouteServiceSectionTitle" xml:space="preserve">Open Route Service</x:String>
+	<x:String x:Key="Text.EditSettings.OpenRouteServiceKey" xml:space="preserve">API key</x:String>
+	<x:String x:Key="Text.EditSettings.OpenRouteServiceKeyWatermark" xml:space="preserve">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</x:String>
+	<x:String x:Key="Text.EditSettings.OpenRouteService_Api_BaseUrl" xml:space="preserve">API base URL</x:String>
+	<x:String x:Key="Text.EditSettings.OpenRouteService_Api_BaseUrlWatermark" xml:space="preserve">https://api.openrouteservice.org</x:String>
+	<x:String x:Key="Text.EditSettings.OpenRouteServiceUserAgent" xml:space="preserve">User agent</x:String>
+	<x:String x:Key="Text.EditSettings.OpenRouteServiceUserAgentWatermark" xml:space="preserve">fly</x:String>
+
+	<x:String x:Key="Text.EditSettings.GeneralSectionTitle" xml:space="preserve">General</x:String>
+	<x:String x:Key="Text.EditSettings.HomeCoordinate" xml:space="preserve">Home coordinate</x:String>
+	<x:String x:Key="Text.EditSettings.HomeCoordinateWatermark" xml:space="preserve">Your home coordinate</x:String>
+	<x:String x:Key="Text.EditSettings.GeneralAutomaticallyOpenLastDocument" xml:space="preserve">Automatically open last document</x:String>
+	<x:String x:Key="Text.EditSettings.GeneralAutomaticallyLoadCoordinateInformation" xml:space="preserve">Automatically load coordinate information</x:String>
+
+	<x:String x:Key="Text.EditSettings.FlightSectionTitle" xml:space="preserve">Flight</x:String>
+	<x:String x:Key="Text.EditSettings.FlightResidualAutonomy" xml:space="preserve">Residual autonomy</x:String>
+	<x:String x:Key="Text.EditSettings.FlightTimeToReachAlternateField" xml:space="preserve">Time to reach alternate field</x:String>
+
+	<x:String x:Key="Text.EditSettings.UnitsOfMeasureSectionTitle" xml:space="preserve">Units of measure</x:String>
+	<x:String x:Key="Text.EditSettings.UnitOfMeasureForSpeed" xml:space="preserve">Speed</x:String>
+	<x:String x:Key="Text.EditSettings.UnitOfMeasureForFuelConsumption" xml:space="preserve">Fuel consumption</x:String>
+
+	<x:String x:Key="Text.EditFlightPlan.Title" xml:space="preserve">Flight plan</x:String>
+	<x:String x:Key="Text.EditFlightPlan.Name" xml:space="preserve">Name</x:String>
+	<x:String x:Key="Text.EditFlightPlan.NameWatermark" xml:space="preserve">My flight plan</x:String>
+	<x:String x:Key="Text.EditFlightPlan.Plane" xml:space="preserve">Plane</x:String>
+	<x:String x:Key="Text.EditFlightPlan.Route" xml:space="preserve">Route</x:String>
+	<x:String x:Key="Text.EditFlightPlan.ResidualAutonomy" xml:space="preserve">Residual autonomy (minutes)</x:String>
+	<x:String x:Key="Text.EditFlightPlan.ResidualAutonomyWatermark" xml:space="preserve">30</x:String>
+	<x:String x:Key="Text.EditFlightPlan.TimeToReachAlternateField" xml:space="preserve">Time to reach alternate field (minutes)</x:String>
+	<x:String x:Key="Text.EditFlightPlan.TimeToReachAlternateFieldWatermark" xml:space="preserve">30</x:String>
+	<x:String x:Key="Text.EditFlightPlan.RhumbLength" xml:space="preserve">Rhumb length</x:String>
+	<x:String x:Key="Text.EditFlightPlan.FlightDuration" xml:space="preserve">Flight duration</x:String>
+	<x:String x:Key="Text.EditFlightPlan.TotalRequiredFuel" xml:space="preserve">Total required fuel (l)</x:String>
+	<x:String x:Key="Text.EditFlightPlan.Tooltips.Copy" xml:space="preserve">Copy to clipboard</x:String>
+
+	<x:String x:Key="Text.EditPlane.Title" xml:space="preserve">Plane</x:String>
+	<x:String x:Key="Text.EditPlane.Name" xml:space="preserve">Name</x:String>
+	<x:String x:Key="Text.EditPlane.NameWatermark" xml:space="preserve">My plane</x:String>
+	<x:String x:Key="Text.EditPlane.RegistrationNumber" xml:space="preserve">Registration number</x:String>
+	<x:String x:Key="Text.EditPlane.RegistrationNumberWatermark" xml:space="preserve">I-ABCD</x:String>
+	<x:String x:Key="Text.EditPlane.CruiseSpeed" xml:space="preserve">Cruise speed</x:String>
+	<x:String x:Key="Text.EditPlane.MeanFuelConsumption" xml:space="preserve">Mean fuel consumption</x:String>
+
+	<x:String x:Key="Text.EditRoute.Title" xml:space="preserve">Route</x:String>
+	<x:String x:Key="Text.EditRoute.Name" xml:space="preserve">Name</x:String>
+	<x:String x:Key="Text.EditRoute.NameWatermark" xml:space="preserve">My route</x:String>
+	<x:String x:Key="Text.EditRoute.Waypoints" xml:space="preserve">Waypoints</x:String>
+
+	<x:String x:Key="Text.ConversionUtility.Title" xml:space="preserve">Converter</x:String>
+	<x:String x:Key="Text.ConversionUtility.SourceValue" xml:space="preserve">Source value</x:String>
+	<x:String x:Key="Text.ConversionUtility.DestinationValue" xml:space="preserve">Target value</x:String>
+	<x:String x:Key="Text.ConversionUtility.Tooltips.SwitchUnitsOfMeasure" xml:space="preserve">Switch units of measure</x:String>
+
+	<x:String x:Key="Text.Toolbar.Tooltips.New" xml:space="preserve">New</x:String>
+	<x:String x:Key="Text.Toolbar.Tooltips.Open" xml:space="preserve">Open...</x:String>
+	<x:String x:Key="Text.Toolbar.Tooltips.Save" xml:space="preserve">Save</x:String>
+	<x:String x:Key="Text.Toolbar.Tooltips.SaveAs" xml:space="preserve">Save as...</x:String>
+	<x:String x:Key="Text.Toolbar.Tooltips.ConversionUtility..." xml:space="preserve">Conversion utility...</x:String>
+	<x:String x:Key="Text.Toolbar.Tooltips.Settings" xml:space="preserve">Settings</x:String>
+	<x:String x:Key="Text.Toolbar.Tooltips.ShowMap" xml:space="preserve">Map</x:String>
+	<x:String x:Key="Text.Toolbar.Tooltips.ShowPlanes" xml:space="preserve">Planes</x:String>
+	<x:String x:Key="Text.Toolbar.Tooltips.ShowFlightPlans" xml:space="preserve">Flight plans</x:String>
+	<x:String x:Key="Text.Toolbar.Tooltips.About" xml:space="preserve">About...</x:String>
+
+	<x:String x:Key="Text.OpenFileDialog.Title" xml:space="preserve">Open document</x:String>
+	<x:String x:Key="Text.SaveFileDialog.Title" xml:space="preserve">Save document</x:String>
+	<x:String x:Key="Text.ConfirmNewFileDialog.Title" xml:space="preserve">New document</x:String>
+	<x:String x:Key="Text.ConfirmNewFileDialog.Message" xml:space="preserve">Any unsaved change will be lost.</x:String>
+
+	<x:String x:Key="Text.MapView.Tooltips.Pan" xml:space="preserve">Pan</x:String>
+	<x:String x:Key="Text.MapView.Tooltips.AddMarker" xml:space="preserve">Add marker</x:String>
+	<x:String x:Key="Text.MapView.Tooltips.AddRoute" xml:space="preserve">Add route</x:String>
+	<x:String x:Key="Text.MapView.Tooltips.Edit" xml:space="preserve">Edit</x:String>
+	<x:String x:Key="Text.MapView.Tooltips.Delete" xml:space="preserve">Delete</x:String>
+
+	<x:String x:Key="Text.Layers.Title" xml:space="preserve">Layers</x:String>
+	<x:String x:Key="Text.Layers.Tooltips.Add" xml:space="preserve">Add</x:String>
+	<x:String x:Key="Text.Layers.Tooltips.Delete" xml:space="preserve">Delete</x:String>
+	<x:String x:Key="Text.Layers.Tooltips.MoveUp" xml:space="preserve">Move up</x:String>
+	<x:String x:Key="Text.Layers.Tooltips.MoveDown" xml:space="preserve">Move down</x:String>
+
+	<x:String x:Key="Text.Markers.Title" xml:space="preserve">Markers</x:String>
+	<x:String x:Key="Text.Markers.Tooltips.Add" xml:space="preserve">Add</x:String>
+	<x:String x:Key="Text.Markers.Tooltips.Edit" xml:space="preserve">Edit</x:String>
+	<x:String x:Key="Text.Markers.Tooltips.Delete" xml:space="preserve">Delete</x:String>
+
+	<x:String x:Key="Text.Routes.Title" xml:space="preserve">Routes</x:String>
+	<x:String x:Key="Text.Routes.Tooltips.Add" xml:space="preserve">Add</x:String>
+	<x:String x:Key="Text.Routes.Tooltips.Edit" xml:space="preserve">Edit</x:String>
+	<x:String x:Key="Text.Routes.Tooltips.Delete" xml:space="preserve">Delete</x:String>
+
+	<x:String x:Key="Text.Planes.Tooltips.Add" xml:space="preserve">Add</x:String>
+	<x:String x:Key="Text.Planes.Tooltips.Edit" xml:space="preserve">Edit</x:String>
+	<x:String x:Key="Text.Planes.Tooltips.Delete" xml:space="preserve">Delete</x:String>
+
+	<x:String x:Key="Text.FlightPlans.Tooltips.Add" xml:space="preserve">Add</x:String>
+	<x:String x:Key="Text.FlightPlans.Tooltips.Edit" xml:space="preserve">Edit</x:String>
+	<x:String x:Key="Text.FlightPlans.Tooltips.Delete" xml:space="preserve">Delete</x:String>
+
+	<x:String x:Key="Text.Dialog.Ok" xml:space="preserve">Ok</x:String>
+	<x:String x:Key="Text.Dialog.Cancel" xml:space="preserve">Cancel</x:String>
+
+	<x:String x:Key="Text.VerticalLimitUnit.Feet" xml:space="preserve">ft</x:String>
+	<x:String x:Key="Text.VerticalLimitUnit.Meter" xml:space="preserve">m</x:String>
+	<x:String x:Key="Text.VerticalLimitUnit.FlightLevel" xml:space="preserve">FL</x:String>
+
+	<x:String x:Key="Text.VerticalLimitReferenceDatum.MSL" xml:space="preserve">MSL</x:String>
+	<x:String x:Key="Text.VerticalLimitReferenceDatum.GND" xml:space="preserve">GND</x:String>
+	<x:String x:Key="Text.VerticalLimitReferenceDatum.STD" xml:space="preserve">STD</x:String>
+</ResourceDictionary>
