@@ -44,6 +44,8 @@ RUN apt-get install -y \
 # To run the application within a Windows host:
 #   Install VcXsrv Windows X Server to share the display from a windows host
 #     see: https://sourceforge.net/projects/vcxsrv/
+#
+#   Run VcXsrv Windows X Server
 #   
 #   Set the environment variable (replace IP with yours):
 #     set-variable -name DISPLAY -value 172.30.192.1:0.0
