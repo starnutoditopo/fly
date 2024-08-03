@@ -455,4 +455,9 @@ $RECYCLE.BIN/
 
 # Preferences settings saved while running on Docker
 .preferences/*
+
+# .keep files are used to keep "empty" directories
 !.keep
+
+# ignore .publish directory
+.publish/*
